@@ -169,22 +169,16 @@ module PCFParser
     def initialize(@bytes, @width, @ascent, @descent, @left_sided_bearing, @right_sided_bearing, @data_bytes, @padding_bytes)
       @bytes_per_row = [(@width / 8).to_i32, 1].max
 
-      # # Pad as needed
+      # Pad as needed
       if (@bytes_per_row % @padding_bytes) != 0
         @bytes_per_row += @padding_bytes - (@bytes_per_row % @padding_bytes)
       end
 
-      # # TODO: Is this last row relevant?
+      # TODO: Is this last row relevant?
       @bytes_per_row = [@bytes_per_row, @data_bytes].max
 
-      needed = @bytes_per_row * (@ascent + @descent)
-      got = @bytes.size
-
-      # pp width
-      # pp ascent
-      # pp descent
-
-      # raise "#{needed} vs #{got}" if needed > got
+      # needed = @bytes_per_row * (@ascent + @descent)
+      # got = @bytes.size
     end
 
     def get(x, y)
@@ -330,8 +324,6 @@ module PCFParser
       end
 
       @bitmaps = [] of Bytes
-
-      pp glyph_pad, scan_unit
 
       slice = Bytes.new(bitmap_sizes[glyph_pad])
       read = io.read_fully(slice)
