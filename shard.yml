@@ -1,0 +1,10 @@
+name: pcf-parser
+version: 0.1.0
+
+authors:
+  - Leon Rische <hello@l3kn.de>
+
+description: |
+  A parser for the pcf bitmap font format
+
+license: MIT
