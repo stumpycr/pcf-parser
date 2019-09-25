@@ -190,7 +190,7 @@ module PCFParser
         raise "Invalid y value: #{y}, must be in range (0..#{@ascent + @descent})"
       end
 
-      index = x / 8 + @bytes_per_row * y
+      index = x // 8 + @bytes_per_row * y
       shift = 7 - (x % 8)
 
       if index < @bytes.size
