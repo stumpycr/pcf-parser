@@ -12,7 +12,7 @@ A parser for `.pcf` bitmap fonts
  ...
  dependencies:
    pcf-parser:
-     github: l3kn/pcf-parser
+     github: stumpycr/pcf-parser
  ...
  ```
 3. `shards install`
